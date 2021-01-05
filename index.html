@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>To Do App</title>
+</head>
+<body>
+    <aside>
+        <div class="logo">
+            <i class="far fa-check-square"></i> To Do App
+        </div>
+
+        <div id="add-list"><span>New List</span><i class="fas fa-plus"></i></div>
+        
+        <ul id="lists">
+            
+        </ul>
+    </aside>
+
+    <div class="main-content">
+        <div class="header">
+            <h1></h1>
+
+            <div class="add-item">
+                <span>Add Item</span>
+                <input type="text" id="item-value">
+                <button id="btn-add-item"><i class="fas fa-plus"></i></button>
+            </div>
+        </div>
+        
+        <ul class="itens">
+
+        </ul>
+    </div>
+
+    <div class="modal-bg"></div>
+    <div id="modal">
+        <h2>Create a new List</h2>
+        <label>List name:</label>
+        <input id="list-name" type="text">
+        <button id="btn-create-list">Create List</button>
+    </div>
+    
+    <script src="plugins/jquery/js/jquery.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
