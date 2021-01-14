@@ -3,7 +3,7 @@
     padding: 0;
 }
 body{
-    background-color: #fafbfd;
+    background-color: #252525;
     font-family: -webkit-pictograph;
 }
 
@@ -72,18 +72,23 @@ aside #lists .list:hover{
     padding: 20px 40px;
     border-bottom: 1px solid #444;
     margin-bottom: 40px;
-}
-.main-content .add-item{
     display:none;
-    margin-top:5px;
+}
+.main-content .header h1{
+    color: #fff;
+    margin-bottom: 15px;
+}
+.main-content .header h1 i{
+    margin-left: 15px;
+    font-size:17px;
+    cursor:pointer;
 }
 .main-content .add-item span{
     background-color: #048a78;
     height: 40px;
     display: inline-block;
-    vertical-align: middle;
     box-sizing: border-box;
-    padding: 7px 5px 0 5px;
+    padding: 7px 8px 0 8px;
     color: #fff;
 }
 .main-content .add-item input[type=text]{
@@ -97,12 +102,13 @@ aside #lists .list:hover{
     margin-left: -5px;
     vertical-align: middle;
     color: #444;
+    border: none;
 }
-.main-content .add-item button{
+.main-content .add-item input[type=submit]{
     height: 40px;
     box-sizing: border-box;
     border: none;
-    margin: -5px 0 0 -5px;
+    margin: -1px 0 0 -4px;
     padding: 0 15px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -113,23 +119,29 @@ aside #lists .list:hover{
 .main-content .add-item button:hover {
     background-color:#05695c;
 }
-.main-content ul{
+.main-content .itens{
     list-style: none;
     width: 90%;
     margin: 0 auto;
 }
-.main-content ul li{
+.main-content .itens li{
     margin-bottom: 15px;
 }
-.main-content ul li input[type=checkbox]{
+.main-content .itens li i{
+    color: #fff;
+    margin-right: 15px;
+    cursor: pointer;
+}
+.main-content .itens li input[type=checkbox]{
     width: 30px;
     height: 30px;
     vertical-align: middle;
     margin-right: 10px;
 }
-.main-content ul li span{
+.main-content .itens li span{
     vertical-align: middle;
     font-size: 16px;
+    color: #fff;
 }
 /* MODAL */
 .modal-bg{
@@ -171,9 +183,9 @@ aside #lists .list:hover{
     border: none;
     background-color: rgba(255,255,255,0.6);
     color:#3c3c3c;
-    font-size: 14px;
+    font-size: 16px;
 }
-#modal button{
+#modal input[type=submit]{
     display: inline-block;
     border: 1px solid transparent;
     padding: 6px 15px;

@@ -25,9 +25,11 @@
             <h1></h1>
 
             <div class="add-item">
-                <span>Add Item</span>
-                <input type="text" id="item-value">
-                <button id="btn-add-item"><i class="fas fa-plus"></i></button>
+                <form>
+                    <span>Add Item</span>
+                    <input type="text" id="item-value">
+                    <input type="submit" id="btn-add-item" value="+">
+                </form>
             </div>
         </div>
         
@@ -40,8 +42,10 @@
     <div id="modal">
         <h2>Create a new List</h2>
         <label>List name:</label>
-        <input id="list-name" type="text">
-        <button id="btn-create-list">Create List</button>
+        <form>
+            <input id="list-name" type="text">
+            <input id="btn-create-list" type="submit" value="Create List">
+        </form>    
     </div>
     
     <script src="plugins/jquery/js/jquery.js"></script>
