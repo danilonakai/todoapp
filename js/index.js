@@ -94,6 +94,7 @@ function show_itens(id){
         });
     }
 }
+
 function check_itens(event){
     let id = event.target.className;
     let item_id = event.target.id;
