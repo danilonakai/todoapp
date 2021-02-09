@@ -5,7 +5,7 @@ var itemId;
 function create_list(list_name){
     let id = listId;
     
-    let newList = {id: id, list_name: list_name,itens: []};
+    let newList = {id: parseInt(id), list_name: list_name,itens: []};
     
     lists.push(newList);
     listId++;
@@ -66,7 +66,7 @@ function update_view(list_id){
 function add_item(id,item_value){
     let item_id = itemId;
     let item_status = false;
-    let newItem = {id: item_id, value: item_value, status: item_status}
+    let newItem = {id: parseInt(item_id), value: item_value, status: item_status}
     
     lists[id].itens.push(newItem);
     itemId++;
