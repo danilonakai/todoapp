@@ -1,6 +1,6 @@
-var lists = [];
-var listId = 0;
-var itemId = 0;
+var lists;
+var listId;
+var itemId;
 
 function create_list(list_name){
     let id = listId;
@@ -9,6 +9,7 @@ function create_list(list_name){
     
     lists.push(newList);
     listId++;
+    localStorage.setItem('list_id',listId);
 
     update_view(id);
 }
@@ -18,10 +19,8 @@ function delete_list(id){
 
     if(lists.length > 0){
         update_view(lists[0].id);
-        show_lists();
     }else{
         update_view("#");
-        show_lists();
     }
 }
 function show_lists(){
@@ -51,7 +50,7 @@ function update_view(list_id){
                 id = e;
             }
         });
-
+        
         let list_name = lists[id].list_name;
         
         $('.header').fadeIn();
@@ -60,7 +59,9 @@ function update_view(list_id){
         show_itens(id);
     }
 
-    console.log("update");
+    show_lists();
+    
+    localStorage.setItem('lists',JSON.stringify(lists));
 }
 function add_item(id,item_value){
     let item_id = itemId;
@@ -69,6 +70,7 @@ function add_item(id,item_value){
     
     lists[id].itens.push(newItem);
     itemId++;
+    localStorage.setItem('list_item',itemId);
     update_view(lists[id].id);
 }
 function delete_item(list,item){
@@ -94,7 +96,6 @@ function show_itens(id){
         });
     }
 }
-
 function check_itens(event){
     let id = event.target.className;
     let item_id = event.target.id;
@@ -133,31 +134,15 @@ function modal_animation(action){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $(document).ready(function(){
+    lists = JSON.parse(localStorage.getItem('lists'));
+    listId = localStorage.getItem('list_id');
+    itemId = localStorage.getItem('item_id');
+    (lists === null) ? lists = [] : update_view(lists[0].id);
+    (listId === null) ? listId = 0 : update_view(lists[0].id);
+    (itemId === null) ? itemId = 0 : update_view(lists[0].id);
+    
+
     //CREATE LIST
     $('#add-list').click(function(){
         modal_animation("open");
