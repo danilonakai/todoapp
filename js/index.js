@@ -70,7 +70,7 @@ function add_item(id,item_value){
     
     lists[id].itens.push(newItem);
     itemId++;
-    localStorage.setItem('list_item',itemId);
+    localStorage.setItem('item_id',itemId);
     update_view(lists[id].id);
 }
 function delete_item(list,item){
