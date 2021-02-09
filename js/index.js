@@ -59,6 +59,8 @@ function update_view(list_id){
         $('.main-content h1').attr('id',id);
         show_itens(id);
     }
+
+    console.log("update");
 }
 function add_item(id,item_value){
     let item_id = itemId;
@@ -73,6 +75,12 @@ function delete_item(list,item){
     lists[list].itens.splice(item,1);
 
     show_itens(list);
+
+    $(lists).each(function(i){
+        if($(lists)[i].id == list){
+            update_view(list);
+        }
+    });
 }
 function show_itens(id){
     $(".main-content .itens").empty();
@@ -91,17 +99,14 @@ function check_itens(event){
     let item_id = event.target.id;
     let status = event.target.checked;
 
-    console.log("tentando");
-
     $(lists[id].itens).each(function(i){
         if(lists[id].itens[i].id == item_id){
             lists[id].itens[i].status = status;
         }
     });
 
-    console.log("consegui");
-
     show_itens(id);
+    update_view(id);
 }
 function modal_animation(action){
     if(action == "open"){
