@@ -1,54 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>To Do App</title>
-</head>
-<body>
-    <aside>
-        <div class="logo">
-            <i class="far fa-check-square"></i> To Do App
-        </div>
-
-        <div id="add-list"><span>New List</span><i class="fas fa-plus"></i></div>
-        
-        <ul id="lists">
-            
-        </ul>
-    </aside>
-
-    <div class="main-content">
-        <div class="header">
-            <h1></h1>
-
-            <div class="add-item">
-                <form>
-                    <span>Add Item</span>
-                    <input type="text" id="item-value">
-                    <input type="submit" id="btn-add-item" value="+">
-                </form>
-            </div>
-        </div>
-        
-        <ul class="itens">
-
-        </ul>
-    </div>
-
-    <div class="modal-bg"></div>
-    <div id="modal">
-        <h2>Create a new List</h2>
-        <label>List name:</label>
-        <form>
-            <input id="list-name" type="text">
-            <input id="btn-create-list" type="submit" value="Create List">
-        </form>    
-    </div>
-    
-    <script src="plugins/jquery/js/jquery.js"></script>
-    <script src="js/index.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/assets/images/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
