@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import logo from './../../assets/images/logo.svg';
-import './Sample.css';
-import { useState } from 'react';
+import './Todo.css';
+// import { useState } from 'react';
 
-export default class Sample extends Component{
+export default class Todo extends Component{
     constructor(props) {
         super(props);
         
@@ -19,6 +18,7 @@ export default class Sample extends Component{
     }
     
     componentDidMount(){
+        
     }
 
     create_list(title){
@@ -78,26 +78,83 @@ export default class Sample extends Component{
     add_item_to_list(list_id,item_title){
         let id = this.state.item_id;
         let data = this.state.data;
-        let new_data = JSON.parse(JSON.stringify(data));
-        new_data = new_data.lists.filter(list => list.id === list_id)[0].items.push({
-            id: id,
-            title: item_title,
-            checked: false
-        });
+        let new_data = [];
 
+        data.lists.forEach(list => {
+            if(list.id === list_id){
+                list.items.push({
+                    id: id,
+                    title: item_title,
+                    checked: false
+                });
+            }
+            
+            new_data.push(list);
+        });
 
         new_data = { lists:  new_data};
 
-        console.log(data);
-        console.log(new_data);
+        this.setState({
+            item_id: id+1,
+            data: new_data
+        }, () => {
+            console.log(this.state.data);
+        });
     }
 
     delete_item_from_list(list_id,item_id){
+        let data = this.state.data;
+        let new_data = [];
 
+        data.lists.forEach(list => {
+            if(list.id === list_id){
+                list.items = list.items.filter(item=> item.id !== item_id);
+            }
+            
+            new_data.push(list);
+        });
+
+        new_data = { lists:  new_data};
+
+        this.setState({
+            data: new_data
+        }, () => {
+            console.log(this.state.data);
+        });
     }
 
     check_item(list_id,item_id){
+        let data = this.state.data;
+        let new_data = [];
 
+        data.lists.forEach(list => {
+            if(list.id === list_id){
+                list.items = list.items.filter(item=> {
+                    if(item.id === item_id){
+                        let checked;
+
+                        if(item.checked){
+                            checked = false;
+                        }else{
+                            checked = true;
+                        }
+
+                        item.checked = checked;
+                    }
+                    return item;
+                });
+            }
+    
+            new_data.push(list);
+        });
+
+        new_data = { lists:  new_data};
+
+        this.setState({
+            data: new_data
+        }, () => {
+            console.log(this.state.data);
+        });
     }
 
 
@@ -119,7 +176,7 @@ export default class Sample extends Component{
 
                 <button onClick={() => this.delete_item_from_list(3,3)}>delete 3rd item from 3rd list</button>
 
-                <button onClick={() => this.check_item(3,3)}>check 3rd item from 3rd list</button>
+                <button onClick={() => this.check_item(3,1)}>check 3rd item from 3rd list</button>
             </header>
         )
     }

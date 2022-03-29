@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import Sample from './components/Sample/Sample';
+import Todo from './components/Todo/Todo';
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      <Sample />
+      <Todo />
     </div>
   )
 }
