@@ -161,7 +161,7 @@ export default class Todo extends Component{
 
     render(){
         return (
-            <header className="App-header">
+            <header className="todo">
                 <button onClick={() => console.log(this.state.data)}>show lists</button>
 
                 <button onClick={() => console.log(this.state.selected_list)}>show selected list</button>
