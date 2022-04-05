@@ -293,27 +293,6 @@ export default class Todo extends Component{
                         {this.print_selected_list()}
                     </article>
                 </section>
-
-
-
-
-
-
-                {/* <button onClick={() => console.log(this.state.data)}>show lists</button>
-
-                <button onClick={() => console.log(this.state.selected_list)}>show selected list</button>
-
-                <button onClick={()=> this.create_list("test")}>create list</button>
-
-                <button onClick={() => this.select_list(3)}>select 3rd list</button>
-
-                <button onClick={() => this.delete_list(3)}>delete 3rd list</button>
-
-                <button onClick={() => this.add_item_to_list(3,"item title")}>add item to 3rd list</button>
-
-                <button onClick={() => this.delete_item_from_list(3,3)}>delete 3rd item from 3rd list</button>
-
-                <button onClick={() => this.check_item(3,1)}>check 3rd item from 3rd list</button> */}
             </div>
         )
     }
