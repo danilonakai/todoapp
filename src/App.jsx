@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './assets/css/reset.css';
 import Todo from './components/Todo/Todo';
 
 function App() {
