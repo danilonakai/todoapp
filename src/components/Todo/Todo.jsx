@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Todo.css';
 // import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus,faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faPlus,faTrash,faBars } from '@fortawesome/free-solid-svg-icons'
 
 export default class Todo extends Component{
     constructor(props) {
@@ -47,7 +47,12 @@ export default class Todo extends Component{
 
         this.setState({
             data: new_data,
-            list_id: id+1
+            list_id: id+1,
+            selected_list: {
+                id: id,
+                title: title,
+                items: []
+            }
         },()=> {
             this.clean_input("list");
             this.save_data();
@@ -67,6 +72,7 @@ export default class Todo extends Component{
                 }
             },()=> {
                 document.querySelector('#todo section article .header svg').style.display = "inline";
+                this.toggle_lists_on_mobile();
             });
         }
     }
@@ -206,12 +212,22 @@ export default class Todo extends Component{
         let data = this.state.data.lists;
         let lists = [];
         let result;
+        let id;
+
+        if(this.state.selected_list !== null){
+            id = this.state.selected_list.id;
+        }
 
         data.forEach(list=> {
-            lists.push(<li onClick={()=> this.select_list(list.id)}><span>{list.title}</span></li>);
+            lists.push(<li className={((list.id === id) ? "active" : "")} onClick={()=> this.select_list(list.id)}><span>{list.title}</span></li>);
         });
 
-        result = (<ul>{lists}</ul>);
+        if(lists.length > 0){
+            result = (<ul>{lists}</ul>);
+        }else{
+            result = (<span>There is no lists yet.</span>);
+        }
+        
 
         return result;
     }
@@ -265,6 +281,18 @@ export default class Todo extends Component{
         )
     }
     
+    toggle_lists_on_mobile(){
+        let lists_box = document.querySelector('#todo section aside');
+
+        console.log(lists_box.offsetLeft);
+
+        if(lists_box.offsetLeft === -250){
+            
+            lists_box.style.left = "0px";
+        }else{
+            lists_box.style.left = "-250px";
+        }
+    }
     
 
     render(){
@@ -286,6 +314,12 @@ export default class Todo extends Component{
 
                 <section className="container">
                     <aside>
+                        <div className="menu" onClick={()=> this.toggle_lists_on_mobile()}>
+                            <FontAwesomeIcon icon={faBars} />
+                        </div>
+
+                        <h3>Lists</h3>
+                        
                         {this.print_converted_lists()}
                     </aside>
 

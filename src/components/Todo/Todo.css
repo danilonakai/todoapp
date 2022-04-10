@@ -25,7 +25,7 @@
 #todo header h1{
     font-size:25px;
     font-weight: 400;
-    color:#393e46;
+    color:#4285f4;
 }
 
 #todo header div{
@@ -38,18 +38,14 @@
     margin-right: 10px;
 }
 #todo header button{
-    border:2px solid #393e46;
-    background-color:transparent;
+    background-color:#4285f4;
+    border:1px solid #4285f4;
     padding:5px 15px;
     display:flex;
     align-items: center;
-    color:#393e46;
+    color:#fff;
     font-size:14px;
     outline:none;
-}
-#todo header button:hover{
-    background-color:#393e46;
-    color:#fff;
     cursor:pointer;
 }
 #todo header svg{
@@ -66,6 +62,18 @@
     width:30%;
     overflow-y: auto;
 }
+#todo section aside h3{
+    font-size:20px;
+    font-weight: 500;
+    margin:0 25px;
+}
+#todo section aside > span{
+    display:block;
+    margin: 10px 25px 0 25px;
+}
+#todo section aside .menu{
+    display:none;
+}
 #todo section aside ul{
     width:100%;
     box-sizing: border-box;
@@ -73,15 +81,16 @@
 }
 #todo section aside ul li{
     width: 100%;
-    padding:15px 10px;
+    padding: 8px 5px;
     box-sizing: border-box;
     cursor:pointer;
+    border-left:3px solid transparent;
 }
 #todo section aside ul li:last-of-type{
     border-bottom: none;
 }
-#todo section aside ul li:hover{
-    box-shadow: 1px 1px 3px 1px #ccc;
+#todo section aside ul li:hover, #todo section aside ul li.active{
+    border-left:3px solid #4285f4;
 }
 #todo section article{
     width: 68%;
@@ -106,18 +115,14 @@
     margin-right: 10px;
 }
 #todo section article button{
-    border:2px solid #393e46;
-    background-color:transparent;
+    background-color:#4285f4;
+    border:1px solid #4285f4;
     padding:5px 15px;
     display:flex;
     align-items: center;
-    color:#393e46;
+    color:#fff;
     font-size:14px;
     outline:none;
-}
-#todo section article button:hover{
-    background-color:#393e46;
-    color:#fff;
     cursor:pointer;
 }
 #todo section article button svg{
@@ -150,4 +155,88 @@
 }
 #todo section article ul li label{
     font-size:16px;
+}
+
+@media screen and (max-width:900px){
+    .container{
+        width:95%;
+    }
+    #todo section aside h3{
+        margin:0 15px;
+    }
+    #todo section aside ul{
+        padding: 15px;
+    }
+}
+@media screen and (max-width:800px){
+    .container{
+        width:97%;
+    }
+    #todo section aside{
+        width:40%;
+    }
+    #todo section article{
+        width:58%;
+    }
+}
+@media screen and (max-width:600px){
+    #todo section article .add-item{
+        flex-wrap: wrap;
+    }
+    #todo section article .add-item input{
+        width:100%;
+        margin-bottom: 10px;
+    }
+}
+@media screen and (max-width:500px){
+    body{
+        background-color:#eee;
+    }
+    .container{
+        width: 100%;
+    }
+    #todo header{
+        margin-bottom: 25px;
+    }
+    #todo header .container{
+        display:block;
+    }
+    #todo header .container h1{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    #todo header div{
+        width:310px;
+        margin: 0 auto;
+    }
+    #todo section aside .menu{
+        display:block;
+    }
+    #todo section aside{
+        width: 50%;
+        position: absolute;
+        top: 110px;
+        left: -50%;
+        min-height: 100vh;
+        box-sizing: border-box;
+        background-color: #444;
+        color: #eee;
+        padding: 30px 0;
+        overflow-y: unset;
+    }
+
+    #todo section aside .menu{
+        position: absolute;
+        top: 10px;
+        right: -26px;
+        background-color: #444;
+        padding: 6px 7px;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+
+    #todo section article{
+        width: 100%;
+    }
+    
 }
