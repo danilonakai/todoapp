@@ -333,7 +333,7 @@ export default class Todo extends Component{
                 </section>
 
                 <footer>
-                    <span>©2021 <a href="https://danilonakai.com/">Danilo Nakai</a> | All rights reserved.</span>
+                    <span>©2021 <a href="https://danilonakai.com/" target="_blank">Danilo Nakai</a> | All rights reserved.</span>
                 </footer>
             </div>
         )
