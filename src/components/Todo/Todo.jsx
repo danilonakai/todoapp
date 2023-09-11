@@ -37,26 +37,28 @@ export default class Todo extends Component{
         let id = this.state.list_id;
         let data = this.state.data;
         let new_data = JSON.parse(JSON.stringify(data));
-        let title = document.getElementById('list-title').value;
-
-        new_data.lists.push({
-            id: id,
-            title: title,
-            items: []
-        });
-
-        this.setState({
-            data: new_data,
-            list_id: id+1,
-            selected_list: {
+        let title = document.getElementById('list-title').value.trim();
+        
+        if(title != ""){
+            new_data.lists.push({
                 id: id,
                 title: title,
                 items: []
-            }
-        },()=> {
-            this.clean_input("list");
-            this.save_data();
-        });
+            });
+    
+            this.setState({
+                data: new_data,
+                list_id: id+1,
+                selected_list: {
+                    id: id,
+                    title: title,
+                    items: []
+                }
+            },()=> {
+                this.clean_input("list");
+                this.save_data();
+            });
+        }
     }
     
     select_list(id){
@@ -105,33 +107,35 @@ export default class Todo extends Component{
         let data = this.state.data;
         let new_data = [];
         let list_id;
-        let item_title = document.getElementById('item-title').value;
+        let item_title = document.getElementById('item-title').value.trim();
 
         if(this.state.selected_list !== null){
             list_id = this.state.selected_list.id;                
         }
 
-        data.lists.forEach(list => {
-            if(list.id === list_id){
-                list.items.push({
-                    id: id,
-                    title: item_title,
-                    checked: false
-                });
-            }
-            
-            new_data.push(list);
-        });
-
-        new_data = { lists:  new_data};
-
-        this.setState({
-            item_id: id+1,
-            data: new_data
-        }, () => {
-            this.clean_input("item");
-            this.save_data();
-        });
+        if(item_title != ""){
+            data.lists.forEach(list => {
+                if(list.id === list_id){
+                    list.items.push({
+                        id: id,
+                        title: item_title,
+                        checked: false
+                    });
+                }
+                
+                new_data.push(list);
+            });
+    
+            new_data = { lists:  new_data};
+    
+            this.setState({
+                item_id: id+1,
+                data: new_data
+            }, () => {
+                this.clean_input("item");
+                this.save_data();
+            });
+        }
     }
 
     delete_item_from_list(list_id,item_id){
@@ -327,6 +331,10 @@ export default class Todo extends Component{
                         {this.print_selected_list()}
                     </article>
                 </section>
+
+                <footer>
+                    <span>©2021 Danilo Nakai | All rights reserved.</span>
+                </footer>
             </div>
         )
     }
