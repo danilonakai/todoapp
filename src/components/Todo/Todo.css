@@ -239,6 +239,7 @@ footer a{
     #todo header div{
         width:310px;
         margin: 0 auto;
+        justify-content: center;
     }
     #todo section aside .menu{
         display:block;
