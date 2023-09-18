@@ -287,14 +287,14 @@ export default class Todo extends Component{
     
     toggle_lists_on_mobile(){
         let lists_box = document.querySelector('#todo section aside');
-
         console.log(lists_box.offsetLeft);
 
-        if(lists_box.offsetLeft === -250){
-            
-            lists_box.style.left = "0px";
-        }else{
+        if(lists_box.offsetLeft == 0){
             lists_box.style.left = "-250px";
+            console.log("-250");
+        }else{
+            lists_box.style.left = "0";
+            console.log("0");
         }
     }
     

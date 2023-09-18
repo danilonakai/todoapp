@@ -219,15 +219,6 @@ footer a{
         width:58%;
     }
 }
-@media screen and (max-width:600px){
-    #todo section article .add-item{
-        flex-wrap: wrap;
-    }
-    #todo section article .add-item input{
-        width:100%;
-        margin-bottom: 10px;
-    }
-}
 @media screen and (max-width:500px){
     body{
         background-color:#eee;
@@ -253,16 +244,18 @@ footer a{
         display:block;
     }
     #todo section aside{
-        width: 50%;
+        width: 250px;
         position: absolute;
         top: 110px;
-        left: -50%;
+        left: -250px;
         min-height: 100vh;
         box-sizing: border-box;
         background-color: #444;
         color: #eee;
         padding: 30px 0;
         overflow-y: unset;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
     }
 
     #todo section aside .menu{
